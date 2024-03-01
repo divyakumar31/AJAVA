@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-package practical4;
+package myFirst;
 
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,18 +10,23 @@ import java.io.PrintWriter;
 
 /**
  *
- * @author acer
+ * @author DIVYA
  */
+@WebServlet(name = "AddCart", urlPatterns = {"/AddCart"})
 public class AddCart extends HttpServlet {
-    
+    @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         PrintWriter out = res.getWriter();
         Cookie cookies[] = req.getCookies();
         for(Cookie c: cookies){
             out.println(c.getValue());
         }
+        String smartphone = req.getParameter("SmartPhone");
+        Cookie c1 = new Cookie("smartphone", smartphone);
+        res.addCookie(c1);
     }
     
+    @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
         doGet(req, res);
     }
