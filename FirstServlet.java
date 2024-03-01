@@ -47,6 +47,7 @@ public class FirstServlet extends HttpServlet {
                 datapassword = rs.getString(1);
             }
             if (datapassword.equals(password)){
+                
                 res.sendRedirect("products.html");
             }
             else {

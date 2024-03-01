@@ -8,6 +8,10 @@
         <servlet-name>AddCart</servlet-name>
         <servlet-class>practical4.AddCart</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DisplayItems</servlet-name>
+        <servlet-class>practical4.DisplayItems</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registration</servlet-name>
         <url-pattern>/reg</url-pattern>
@@ -15,5 +19,9 @@
     <servlet-mapping>
         <servlet-name>AddCart</servlet-name>
         <url-pattern>/AddCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayItems</servlet-name>
+        <url-pattern>/DisplayItems</url-pattern>
     </servlet-mapping>
 </web-app>

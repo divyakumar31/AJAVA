@@ -1,4 +1,4 @@
-package myFirst;
+package practical4;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -12,18 +12,37 @@ import java.io.PrintWriter;
  *
  * @author DIVYA
  */
+
 @WebServlet(name = "AddCart", urlPatterns = {"/AddCart"})
 public class AddCart extends HttpServlet {
+    SmartPhone phone = new SmartPhone();
+    
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         PrintWriter out = res.getWriter();
-        Cookie cookies[] = req.getCookies();
-        for(Cookie c: cookies){
-            out.println(c.getValue());
-        }
         String smartphone = req.getParameter("SmartPhone");
-        Cookie c1 = new Cookie("smartphone", smartphone);
-        res.addCookie(c1);
+        System.out.println(smartphone);
+        
+        
+        Cookie cookies[] = req.getCookies();
+        boolean flag = true;
+        for(Cookie c: cookies){
+            if (c.getName().equals("items")) {
+                phone.addItem(smartphone);
+                c.setValue(phone.toString());
+                res.addCookie(c);
+                System.out.println(phone.toString());
+                flag = false;
+            }
+        }
+        
+        if(flag){
+            phone.addItem(smartphone);
+            Cookie c1 = new Cookie("items", phone.toString());
+            res.addCookie(c1);
+        }
+        
+        res.sendRedirect("products.html");
     }
     
     @Override
