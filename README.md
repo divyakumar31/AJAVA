@@ -1,1 +1,3 @@
 # AJAVA
+
+AJAVA Practicals.
