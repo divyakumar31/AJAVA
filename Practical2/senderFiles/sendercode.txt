@@ -1,0 +1,5 @@
+Hello This message is from sender side.
+Here, the following code refers to the main function of java.
+public static void main(String[] args) {
+    System.out.println("Hello"); 
+}
