@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    
+    <!--Filters-->
+    
+    <filter>
+        <filter-name>ValidFormatFilter</filter-name>
+        <filter-class>Practical6.ValidFormatFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ValidFormatFilter</filter-name>
+        <url-pattern>/AddNumbers</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>RangeFilter</filter-name>
+        <filter-class>Practical6.RangeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RangeFilter</filter-name>
+        <url-pattern>/AddNumbers</url-pattern>
+    </filter-mapping>
+    
+    
+    <!--Servlets-->
+    
+    <servlet>
+        <servlet-name>AddNumbers</servlet-name>
+        <servlet-class>Practical6.AddNumbers</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddNumbers</servlet-name>
+        <url-pattern>/AddNumbers</url-pattern>
+    </servlet-mapping>
+</web-app>
